@@ -32,10 +32,10 @@ public class GpsInfo extends Service implements LocationListener {
     double lon; // 경도
 
     // 최소 GPS 정보 업데이트 거리 10미터
-    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10;
+    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 50;
 
-    // 최소 GPS 정보 업데이트 시간 밀리세컨이므로 1분
-    private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 1;
+    // 최소 GPS 정보 업데이트 시간 밀리세컨이므로 15분
+    private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 15;
 
     protected LocationManager locationManager;
     public GpsInfo(Context context) {
@@ -63,8 +63,6 @@ public class GpsInfo extends Service implements LocationListener {
                 // 네트워크 정보로 부터 위치값 가져오기
                 if (isNetworkEnabled) {
                     try {
-
-
                         locationManager.requestLocationUpdates(
                                 LocationManager.NETWORK_PROVIDER,
                                 MIN_TIME_BW_UPDATES,
@@ -83,12 +81,9 @@ public class GpsInfo extends Service implements LocationListener {
                         e.printStackTrace();
                     }
                 }
-
                 if (isGPSEnabled) {
                     if (location == null) {
                         try {
-
-
                             locationManager.requestLocationUpdates(
                                     LocationManager.GPS_PROVIDER,
                                     MIN_TIME_BW_UPDATES,

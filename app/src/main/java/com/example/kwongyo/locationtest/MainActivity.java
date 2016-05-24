@@ -31,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    @OnClick(R.id.gpsShutdown)
+    public void shutdown(View v) {
+        gps.stopUsingGPS();
+    }
     @OnClick(R.id.btn)
     public void click(View v) {
         gps = new GpsInfo(MainActivity.this);

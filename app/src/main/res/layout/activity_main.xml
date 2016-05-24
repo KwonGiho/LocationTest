@@ -11,7 +11,13 @@
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="클릭"
+        android:text="지도 켜기 클릭"
+        />
+    <Button
+        android:id="@+id/gpsShutdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="gps기능 끄기"
         />
     <TextView
         android:id="@+id/latituteField"
